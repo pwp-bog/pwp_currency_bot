@@ -1,27 +1,27 @@
 # Сбор данных
-a = input()
-
-# Проверка на конвертируемые валюты
-if "byn in uzs" in a:
-
-    # Поиск индекса для нахождения числа
-    index = a.index("/")
-    # Создание строки с одним числом
-    prenum = (a[:index])
-    # Удаление пробелов из строки содержащее число, с последующей конвертацией в int
-    num = int(prenum.replace(" ", ""))
+input_data = input("write information in this window: ")
 
 
-# TODO Добавить удаление пробелов до получения индексов
-# TODO Добавить преобразование в маленькие буквы для полученной строки
+# Преобразование данных в нужный вид
+input_data = input_data.replace(" ", "")
+input_data = input_data.lower()
 
-    print(f"convert {num} byn in uzs")
 
-elif "uzs in byn" in a:
-    index = a.index("/")
-    prenum = (a[:index])
-    num = int(prenum.replace(" ", ""))
-
-    print("convert {num} uzs in byn")
+# Поиск валюты в преобразованной строке
+if "byninuzs" in input_data:
+    value = "byn"
+elif "uzsinbyn" in input_data:
+    value = "uzs"
 else:
-    print("error")
+    value = "unknown value"
+    print(value)
+
+
+# Преобразование данных в число денег
+for i in range(len(input_data)):
+    if input_data[i].isdigit() == False:
+        money = input_data[:i]
+        break
+
+
+print(money, value)
