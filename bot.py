@@ -11,9 +11,12 @@ buttons.add(btn, btn1)
 
 
 # Start handler
-@bot.message_handler(commands="start")
-def send_welcome_message(message):
-    bot.reply_to(message, "Hello", reply_markup=buttons)
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    bot.reply_to(
+        message, "hello", reply_markup=buttons
+    )
 
 
-bot.infinity_polling()
+if __name__ == "__main__":
+    bot.poling(none_stop=True)
